@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <title>Your account | Northstar</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="dashboard-page">
+  <header class="dashboard-header">
+    <a class="wordmark dark-wordmark" href="/dashboard">NORTHSTAR<span> / ACCOUNT</span></a>
+    <form action="/logout" method="post"><button class="logout-button" type="submit">Sign out <span aria-hidden="true">&#8599;</span></button></form>
+  </header>
+  <main class="dashboard-main">
+    <p class="eyebrow">MEMBER SPACE <span class="status-dot"></span> AUTHENTICATED</p>
+    <h1>Welcome,<br><em><%= user.name %>.</em></h1>
+    <div class="member-details">
+      <div><span class="detail-label">ACCOUNT EMAIL</span><span class="detail-value"><%= user.email %></span></div>
+      <div><span class="detail-label">MEMBER SINCE</span><span class="detail-value"><%= new Date(user.createdAt).toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' }) %></span></div>
+      <div><span class="detail-label">ACCOUNT ID</span><span class="detail-value detail-id"><%= user.id %></span></div>
+    </div>
+    <p class="dashboard-note">You're signed in. Your account is ready.</p>
+  </main>
+  <footer class="dashboard-footer"><span>NORTHSTAR ACCOUNT</span><span>PRIVATE MEMBER VIEW</span></footer>
+</body>
+</html>

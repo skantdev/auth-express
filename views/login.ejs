@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <title>Sign in | Northstar</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="auth-page">
+  <main class="auth-layout">
+    <section class="story-panel" aria-label="Welcome">
+      <a class="wordmark" href="/">NORTHSTAR<span> / ACCOUNT</span></a>
+      <div class="story-copy">
+        <p class="eyebrow">YOUR WORKSPACE, IN FOCUS</p>
+        <h1>Good to<br>have you<br><em>back.</em></h1>
+        <p class="story-note">A clear place to pick up where you left off.</p>
+      </div>
+      <div class="story-footer"><span>01</span><span>MEMBER ACCESS</span><span>EST. 2026</span></div>
+    </section>
+
+    <section class="form-panel">
+      <div class="form-wrap">
+        <p class="eyebrow form-eyebrow">MEMBER SIGN IN <span>01 / 02</span></p>
+        <h2>Welcome back</h2>
+        <p class="form-intro">Sign in with your email and password.</p>
+
+        <% if (error) { %>
+          <div class="form-error" role="alert"><%= error %></div>
+        <% } %>
+
+        <form action="/login" method="post" class="auth-form">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="254" value="<%= email %>" required>
+
+          <div class="label-row"><label for="password">Password</label><a href="/signup">New here?</a></div>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+
+          <button class="primary-button" type="submit">Sign in <span aria-hidden="true">&#8594;</span></button>
+        </form>
+
+        <p class="switch-copy">Don't have an account? <a href="/signup">Create one <span aria-hidden="true">&#8599;</span></a></p>
+      </div>
+      <div class="panel-mark" aria-hidden="true">N.</div>
+    </section>
+  </main>
+</body>
+</html>

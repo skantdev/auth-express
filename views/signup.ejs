@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <title>Create account | Northstar</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="auth-page">
+  <main class="auth-layout">
+    <section class="story-panel story-panel-signup" aria-label="Create your account">
+      <a class="wordmark" href="/">NORTHSTAR<span> / ACCOUNT</span></a>
+      <div class="story-copy">
+        <p class="eyebrow">A BETTER PLACE TO BEGIN</p>
+        <h1>Make room<br>for what<br><em>matters.</em></h1>
+        <p class="story-note">Create your account and make this space yours.</p>
+      </div>
+      <div class="story-footer"><span>02</span><span>NEW MEMBER</span><span>EST. 2026</span></div>
+    </section>
+
+    <section class="form-panel">
+      <div class="form-wrap">
+        <p class="eyebrow form-eyebrow">CREATE ACCOUNT <span>02 / 02</span></p>
+        <h2>Start here</h2>
+        <p class="form-intro">A few details, then you're in.</p>
+
+        <% if (error) { %>
+          <div class="form-error" role="alert"><%= error %></div>
+        <% } %>
+
+        <form action="/signup" method="post" class="auth-form">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" minlength="2" maxlength="100" value="<%= name %>" required>
+
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="254" value="<%= email %>" required>
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="72" aria-describedby="password-note" required>
+          <p class="field-note" id="password-note">Use at least 8 characters.</p>
+
+          <button class="primary-button" type="submit">Create account <span aria-hidden="true">&#8594;</span></button>
+        </form>
+
+        <p class="switch-copy">Already registered? <a href="/login">Sign in <span aria-hidden="true">&#8599;</span></a></p>
+      </div>
+      <div class="panel-mark" aria-hidden="true">N.</div>
+    </section>
+  </main>
+</body>
+</html>
